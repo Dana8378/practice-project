@@ -9,12 +9,11 @@
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
     background-color: rgb(40, 40, 40);
 }
 
 .button:disabled {
-    background-color: gray;
+    opacity: 0.5;
     cursor: default;
-    border: 2px solid black;
 }

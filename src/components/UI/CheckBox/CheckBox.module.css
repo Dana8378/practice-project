@@ -1,0 +1,43 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.wrapper.disabled {
+    opacity: 0.5
+}
+
+.hiddenInput {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    pointer-events: none;
+}
+
+.customCheckbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customCheckbox.checked {
+    background-color: black;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+.label {
+  font-size: 14px;
+  color: black;
+}
