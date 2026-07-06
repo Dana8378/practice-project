@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from './components/UI/Button'
 import { Input } from './components/UI/Input/Input'
 import { CheckBox } from './components/UI/CheckBox'
+import { Card } from './components/UI/Card';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
@@ -29,6 +30,16 @@ function App() {
           checked={isChecked}
           onChange={setIsChecked}
         />
+      </div>
+
+      <div>
+        <Card 
+          title="Заголовок"
+          description='Это описание карточки'
+        >
+              <Button>Кнопка</Button>
+              <Button>Длинная кнопка</Button>
+        </Card>
       </div>
     </div>
   )
