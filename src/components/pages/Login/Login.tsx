@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { Input } from '../../UI/Input';
 import { Button } from '../../UI/Button';
 
 import styles from './Login.module.css';
@@ -25,6 +24,8 @@ type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export const Login = () => {
 
+    const [authError, setAuthError] = useState<string | null>(null);
+
     const {
         register, 
         handleSubmit, 
@@ -38,13 +39,33 @@ export const Login = () => {
         });
 
     const onSubmit = (data: LoginFormData) => {
-        localStorage.setItem("user", JSON.stringify(data));
+        const existingUsers = localStorage.getItem('users');
+        const users = existingUsers ? JSON.parse(existingUsers) : [];
+
+        const user = users.find((u: any) => u.username === data.username);
+
+        if (!user) {
+            setAuthError('Пользователь с таким именем не найден');
+            return;
+        }
+
+        if (user.password !== data.password) {
+            setAuthError('Неверный пароль');
+            return;
+        }
+
+        localStorage.setItem('user', JSON.stringify(user));
         reset();
     };
 
     return(
         <div className={styles.page}>
             <div className={styles.container}>
+
+                {authError && (
+                    <div className={styles.errorText}>{authError}</div>
+                )}
+
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     <input 
                         {...register('username')} 

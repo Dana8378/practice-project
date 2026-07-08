@@ -5,12 +5,13 @@ import { Input } from './components/UI/Input/Input'
 import { CheckBox } from './components/UI/CheckBox'
 import { Card } from './components/UI/Card';
 import { Login } from './components/pages/Login/Login';
+import { Register } from './components/pages/Register/Register';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
-  return <Login/>;
+  return <Register/>;
 
   // return (
   //   <div>
