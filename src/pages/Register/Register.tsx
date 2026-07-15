@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../components/UI/Button';
+import { useAuth } from '../../context/AuthContext';
 
 import styles from './Register.module.css';
 
@@ -27,7 +29,8 @@ const registerSchema = yup.object().shape({
 type RegisterFormData = yup.InferType<typeof registerSchema>;
 
 export const Register = () => {
-
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const [authError, setAuthError] = useState<string | null>(null);
     
     const {
@@ -57,8 +60,9 @@ export const Register = () => {
         });
 
         localStorage.setItem('users', JSON.stringify(users));
-        localStorage.setItem("user", JSON.stringify(data));
+        login({ username: data.username });
         reset()
+        navigate('/')
     };
 
     return(

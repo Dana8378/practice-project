@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../components/UI/Button';
+import { useAuth } from '../../context/AuthContext';
 
 import styles from './Login.module.css';
 
@@ -23,7 +25,8 @@ const loginSchema = yup.object().shape({
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export const Login = () => {
-
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const [authError, setAuthError] = useState<string | null>(null);
 
     const {
@@ -54,8 +57,9 @@ export const Login = () => {
             return;
         }
 
-        localStorage.setItem('user', JSON.stringify(user));
+        login({ username: data.username });
         reset();
+        navigate('/');
     };
 
     return(
