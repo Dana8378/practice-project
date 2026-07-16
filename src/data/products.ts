@@ -12,6 +12,7 @@ export const products: Product[] = [
         name: 'Розы красные',
         price: 1500,
         description: 'Классические красные розы. Символ любви и страсти. Длина стебля 60 см, бутон 5-7 см. Срок жизни в вазе — до 7 дней.',
+        image: "images/products/1.jpg"
     },
     {
         id: 2,
