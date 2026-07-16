@@ -19,20 +19,22 @@ export const ProductCard = ({product}: ProductCardProps) => {
     };
 
     return(
-        <Card 
-            title={product.name}
-            description={`${formattedPrice} руб.`}
-            imageUrl={product.image}
-        >
-            <div className={styles.actions}>
-                <Link to={`/product/${product.id}`} className={styles.detailLink}>Подробнее</Link>
+        <div className={styles.productCard}>
+            <Card 
+                title={product.name}
+                description={`${formattedPrice} руб.`}
+                imageUrl={product.image}
+            >
+                <div className={styles.actions}>
+                    <Link to={`/product/${product.id}`} className={styles.detailLink}>Подробнее</Link>
 
-                {isAuthenticated ? (
-                    <Button onClick={handleAddToCard}>В корзину</Button>
-                ) : (
-                    <Link to={"/login"} className={styles.loginLink}>Войдите, чтобы купить</Link>
-                )}
-            </div>
-        </Card>
+                    {isAuthenticated ? (
+                        <Button onClick={handleAddToCard}>В корзину</Button>
+                    ) : (
+                        <Link to={"/login"} className={styles.loginLink}>Войдите, чтобы купить</Link>
+                    )}
+                </div>
+            </Card>
+        </div>
     )
 }

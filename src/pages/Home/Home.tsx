@@ -6,6 +6,9 @@ export const Home = () => {
     return (
         <div className={styles.page}>
             <h1 className={styles.title}>Каталог цветов</h1>
+            <p className={styles.subtitle}>
+                Свежие цветы для любого повода
+            </p>
             <div className={styles.catalog}>
                 {products.map(product => (
                     <ProductCard key={product.id} product={product} />
