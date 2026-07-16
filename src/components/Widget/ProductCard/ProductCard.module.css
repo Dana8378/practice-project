@@ -1,0 +1,36 @@
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.detailLink, .loginLink{
+    display: block;
+    text-align: center;
+    padding: 6px 6px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.detailLink:hover, 
+.loginLink:hover {
+    opacity: 0.7;
+}
+
+/* .loginLink {
+    display: block;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 6px;
+} */
+
