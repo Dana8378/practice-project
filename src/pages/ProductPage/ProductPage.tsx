@@ -21,7 +21,7 @@ export const ProductPage = () => {
             <div className={styles.product}>
                 <h2>{product.name}</h2>
                 <img 
-                    src="/images/products/1.jpg" 
+                    src={product.image} 
                     alt={product.name} 
                     className={styles.productImage}
                 />
