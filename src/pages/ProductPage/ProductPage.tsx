@@ -18,11 +18,15 @@ export const ProductPage = () => {
 
     return (
         <div className={styles.page}>
-            <h1>Карточка товара</h1>
             <div className={styles.product}>
                 <h2>{product.name}</h2>
-                <p>Цена: {product.price} руб.</p>
-                <p>описание: {product.description}</p>
+                <img 
+                    src="/images/products/1.jpg" 
+                    alt={product.name} 
+                    className={styles.productImage}
+                />
+                <p className={styles.price}>Цена: {product.price} руб.</p>
+                <p className={styles.description}>{product.description}</p>
             </div>
         </div>
     );

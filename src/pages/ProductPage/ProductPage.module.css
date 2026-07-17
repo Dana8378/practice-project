@@ -1,0 +1,29 @@
+.page {
+    padding: 32px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.productImage {
+    width: 240px;
+    max-width: 240px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.price {
+    font-size: 18px;
+    color: rgb(102, 102, 102);
+    margin: 0;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
