@@ -22,7 +22,7 @@ export const ProductPage = () => {
                 <h2>{product.name}</h2>
                 <img 
                     src={product.image} 
-                    alt={product.name} 
+                    alt={product.name}
                     className={styles.productImage}
                 />
                 <p className={styles.price}>Цена: {product.price} руб.</p>
