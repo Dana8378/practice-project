@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {useState} from 'react';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-import { Button } from '../../components/UI/Button';
-import { useAuth } from '../../context/AuthContext';
+import {Button} from '../../components/UI/Button';
+import {useAuth} from '../../context/AuthContext';
 
 import styles from './Login.module.css';
 
@@ -25,21 +25,22 @@ const loginSchema = yup.object().shape({
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export const Login = () => {
-    const { login } = useAuth();
+    const {login} = useAuth();
     const navigate = useNavigate();
     const [authError, setAuthError] = useState<string | null>(null);
 
     const {
-        register, 
-        handleSubmit, 
-        formState: {errors}, 
-        reset,} = useForm({
-            resolver: yupResolver(loginSchema),
-            defaultValues: {
-                username: '',
-                password: '',
-            },
-        });
+        register,
+        handleSubmit,
+        formState: {errors},
+        reset,
+    } = useForm({
+        resolver: yupResolver(loginSchema),
+        defaultValues: {
+            username: '',
+            password: '',
+        },
+    });
 
     const onSubmit = (data: LoginFormData) => {
         const existingUsers = localStorage.getItem('users');
@@ -57,12 +58,12 @@ export const Login = () => {
             return;
         }
 
-        login({ username: data.username });
+        login({username: data.username});
         reset();
         navigate('/');
     };
 
-    return(
+    return (
         <div className={styles.page}>
             <div className={styles.container}>
 
@@ -71,8 +72,8 @@ export const Login = () => {
                 )}
 
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                    <input 
-                        {...register('username')} 
+                    <input
+                        {...register('username')}
                         placeholder="Введите имя пользователя"
                     />
 
@@ -80,14 +81,14 @@ export const Login = () => {
                         <span className={styles.errorText}>{errors.username?.message}</span>
                     )}
 
-                    <input 
-                    {...register('password')} 
-                    type="password"
-                    placeholder="Введите пароль" />
+                    <input
+                        {...register('password')}
+                        type="password"
+                        placeholder="Введите пароль"/>
 
-                        {errors.password?.message && (
-                            <span className={styles.errorText}>{errors.password?.message}</span>
-                        )}
+                    {errors.password?.message && (
+                        <span className={styles.errorText}>{errors.password?.message}</span>
+                    )}
 
                     <Button>Войти</Button>
                 </form>

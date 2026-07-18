@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
-import { Button } from '../../components/UI/Button';
+import {Link} from 'react-router-dom';
+import {useCart} from '../../context/CartContext';
+import {Button} from '../../components/UI/Button';
 import styles from './Cart.module.css';
 
 export const Cart = () => {
-    const { cart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice } = useCart();
+    const {cart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice} = useCart();
 
     const formatPrice = (price: number) => {
         return price.toLocaleString('ru-RU')
@@ -29,12 +29,12 @@ export const Cart = () => {
                 <div className={styles.cartItems}>
                     {cart.map(item => (
                         <div key={item.id} className={styles.cartItem}>
-                            <img 
-                                src={item.image} 
-                                alt={item.name} 
+                            <img
+                                src={item.image}
+                                alt={item.name}
                                 className={styles.itemImage}
                             />
-                            
+
                             <div className={styles.itemInfo}>
                                 <h3 className={styles.itemName}>{item.name}</h3>
                                 <p className={styles.itemPrice}>{formatPrice(item.price)} ₽</p>

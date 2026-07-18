@@ -7,13 +7,13 @@ interface ButtonProps {
 }
 
 export const Button = ({
-    children, 
-    onClick, 
-    disabled = false
-}: ButtonProps) => {
+                           children,
+                           onClick,
+                           disabled = false
+                       }: ButtonProps) => {
 
     return (
-        <button 
+        <button
             className={styles.button}
             onClick={onClick}
             disabled={disabled}

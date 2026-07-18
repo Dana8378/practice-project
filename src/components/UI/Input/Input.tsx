@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Input.module.css'
 
-interface InputProps{
+interface InputProps {
     value?: string;
     onChange?: (value: string) => void;
     placeholder?: string;
@@ -9,25 +9,25 @@ interface InputProps{
 }
 
 export const Input = ({
-    value,
-    onChange,
-    placeholder = 'input',
-    disabled = false
-}: InputProps) => {
+                          value,
+                          onChange,
+                          placeholder = 'input',
+                          disabled = false
+                      }: InputProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange(e.target.value)
         }
     };
 
-    return(
+    return (
         <input
-        type="text"
-        className={styles.input}
-        onChange={handleChange}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
+            type="text"
+            className={styles.input}
+            onChange={handleChange}
+            value={value}
+            placeholder={placeholder}
+            disabled={disabled}
         />
     )
 }

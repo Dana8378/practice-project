@@ -9,13 +9,13 @@ interface CheckBoxProps {
 }
 
 export const CheckBox = ({
-    label,
-    checked = false,
-    disabled = false,
-    onChange,
-}: CheckBoxProps) => {
+                             label,
+                             checked = false,
+                             disabled = false,
+                             onChange,
+                         }: CheckBoxProps) => {
     const handleToggle = () => {
-        if (!disabled && onChange){
+        if (!disabled && onChange) {
             onChange(!checked);
         }
     };
@@ -31,7 +31,7 @@ export const CheckBox = ({
             />
 
             <div className={`${styles.customCheckbox} ${checked ? styles.checked : ''}`}>
-                {checked && <img src={checkIcon} alt="check" />}
+                {checked && <img src={checkIcon} alt="check"/>}
             </div>
 
             {label && <span className={styles.label}>{label}</span>}

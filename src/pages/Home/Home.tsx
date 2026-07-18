@@ -1,5 +1,5 @@
-import { products } from "../../data/products"
-import { ProductCard } from "../../components/Widget/ProductCard"
+import {products} from "../../data/products"
+import {ProductCard} from "../../components/Widget/ProductCard"
 import styles from "./Home.module.css"
 
 export const Home = () => {
@@ -11,7 +11,7 @@ export const Home = () => {
             </p>
             <div className={styles.catalog}>
                 {products.map(product => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.id} product={product}/>
                 ))}
             </div>
         </div>

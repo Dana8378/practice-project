@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../../context/AuthContext";
-import { Button } from "../../UI/Button";
+import {Link, useNavigate} from "react-router-dom";
+import {useAuth} from "../../../context/AuthContext";
+import {Button} from "../../UI/Button";
 import styles from "./Header.module.css"
 
 export const Header = () => {

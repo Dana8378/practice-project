@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect, } from 'react';
-import type { Product } from '../data/products';
+import {createContext, useContext, useEffect, useState,} from 'react';
+import type {Product} from '../data/products';
 
 interface CartItem extends Product {
     quantity: number;
@@ -17,7 +17,7 @@ interface CartConrextType {
 
 const CartContext = createContext<CartConrextType | undefined>(undefined);
 
-export const CartProvider = ({children}: {children: React.ReactNode}) => {
+export const CartProvider = ({children}: { children: React.ReactNode }) => {
 
     const [cart, setCart] = useState<CartItem[]>(() => {
         const savedCart = localStorage.getItem('cart');
@@ -40,12 +40,12 @@ export const CartProvider = ({children}: {children: React.ReactNode}) => {
             const existingItem = prevCart.find(item => item.id === product.id);
 
             if (existingItem) {
-                return prevCart.map(item => 
-                    item.id === product.id 
-                        ? { ...item, quantity: item.quantity + 1 } 
+                return prevCart.map(item =>
+                    item.id === product.id
+                        ? {...item, quantity: item.quantity + 1}
                         : item)
             } else {
-                return [...prevCart, { ...product, quantity: 1 }];
+                return [...prevCart, {...product, quantity: 1}];
             }
         });
     };
@@ -60,9 +60,9 @@ export const CartProvider = ({children}: {children: React.ReactNode}) => {
             return;
         }
 
-        setCart(prevCart => prevCart.map(item => 
-            item.id === productId 
-                ? { ...item, quantity } 
+        setCart(prevCart => prevCart.map(item =>
+            item.id === productId
+                ? {...item, quantity}
                 : item))
     };
 

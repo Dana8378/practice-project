@@ -80,7 +80,7 @@
 .quantityButton:hover,
 .removeButton:hover,
 .clearButton:hover,
-.toCatalog:hover{
+.toCatalog:hover {
     opacity: 0.7;
 }
 
@@ -95,7 +95,7 @@
     font-weight: 500;
 }
 
-.removeButton{
+.removeButton {
     background: black;
     border: none;
     border-radius: 6px;

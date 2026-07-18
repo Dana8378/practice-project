@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,11 +33,11 @@
 }
 
 .icon {
-  width: 14px;
-  height: 14px;
+    width: 14px;
+    height: 14px;
 }
 
 .label {
-  font-size: 14px;
-  color: black;
+    font-size: 14px;
+    color: black;
 }

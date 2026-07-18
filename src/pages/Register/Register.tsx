@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {useState} from 'react';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-import { Button } from '../../components/UI/Button';
-import { useAuth } from '../../context/AuthContext';
+import {Button} from '../../components/UI/Button';
+import {useAuth} from '../../context/AuthContext';
 
 import styles from './Register.module.css';
 
@@ -29,14 +29,14 @@ const registerSchema = yup.object().shape({
 type RegisterFormData = yup.InferType<typeof registerSchema>;
 
 export const Register = () => {
-    const { login } = useAuth();
+    const {login} = useAuth();
     const navigate = useNavigate();
     const [authError, setAuthError] = useState<string | null>(null);
-    
+
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: {errors},
         reset,
     } = useForm({
         resolver: yupResolver(registerSchema),
@@ -60,12 +60,12 @@ export const Register = () => {
         });
 
         localStorage.setItem('users', JSON.stringify(users));
-        login({ username: data.username });
+        login({username: data.username});
         reset()
         navigate('/')
     };
 
-    return(
+    return (
         <div className={styles.page}>
             <div className={styles.container}>
 
@@ -74,8 +74,8 @@ export const Register = () => {
                 )}
 
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                    <input 
-                        {...register('username')} 
+                    <input
+                        {...register('username')}
                         placeholder="Введите имя пользователя"
                     />
 
@@ -83,20 +83,20 @@ export const Register = () => {
                         <span className={styles.errorText}>{errors.username?.message}</span>
                     )}
 
-                    <input 
-                        {...register('password')} 
+                    <input
+                        {...register('password')}
                         type="password"
-                        placeholder="Введите пароль" 
+                        placeholder="Введите пароль"
                     />
 
                     {errors.password?.message && (
                         <span className={styles.errorText}>{errors.password?.message}</span>
                     )}
 
-                    <input 
-                        {...register('confirmPassword')} 
+                    <input
+                        {...register('confirmPassword')}
                         type="password"
-                        placeholder="Подтвердите пароль" 
+                        placeholder="Подтвердите пароль"
                     />
 
                     {errors.confirmPassword?.message && (

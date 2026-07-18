@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -10,22 +9,22 @@ interface CardProps {
 }
 
 export const Card = ({
-    title,
-    description,
-    imageUrl,
-    children,
-    onClick,
-}: CardProps) => {
+                         title,
+                         description,
+                         imageUrl,
+                         children,
+                         onClick,
+                     }: CardProps) => {
 
-    return(
+    return (
         <div
-        className={`${styles.card} ${onClick ? styles.clickable : ''}`}
-        onClick={onClick}>
+            className={`${styles.card} ${onClick ? styles.clickable : ''}`}
+            onClick={onClick}>
             <div className={styles.imageContainer}>
                 {imageUrl ? (
-                    <img 
-                        src={imageUrl} 
-                        alt={title} 
+                    <img
+                        src={imageUrl}
+                        alt={title}
                         className={styles.image}
                     />
                 ) : (

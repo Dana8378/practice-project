@@ -1,9 +1,9 @@
-import { Card } from "../../UI/Card"
-import { Button } from "../../UI/Button"
-import { Link } from "react-router-dom"
-import { useAuth } from "../../../context/AuthContext"
-import { useCart } from "../../../context/CartContext"
-import type { Product } from "../../../data/products"
+import {Card} from "../../UI/Card"
+import {Button} from "../../UI/Button"
+import {Link} from "react-router-dom"
+import {useAuth} from "../../../context/AuthContext"
+import {useCart} from "../../../context/CartContext"
+import type {Product} from "../../../data/products"
 import styles from "./ProductCard.module.css"
 
 interface ProductCardProps {
@@ -11,8 +11,8 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({product}: ProductCardProps) => {
-    const { isAuthenticated } = useAuth();
-    const { cart, addToCart } = useCart();
+    const {isAuthenticated} = useAuth();
+    const {cart, addToCart} = useCart();
 
     const isInCart = cart.some(item => item.id === product.id);
 
@@ -22,9 +22,9 @@ export const ProductCard = ({product}: ProductCardProps) => {
         addToCart(product);
     };
 
-    return(
+    return (
         <div className={styles.productCard}>
-            <Card 
+            <Card
                 title={product.name}
                 description={`${formattedPrice} руб.`}
                 imageUrl={product.image}
